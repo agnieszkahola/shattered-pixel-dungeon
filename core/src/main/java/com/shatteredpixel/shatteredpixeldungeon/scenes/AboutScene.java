@@ -44,6 +44,16 @@ public class AboutScene extends PixelScene {
 
 	private static final String LNK_SHPX = "ShatteredPixel.com";
 
+
+	private static final String TTL_SM = "Słowak Movie Dungeon";
+
+	private static final String TXT_SM =
+			"Graphics by Pobulus\n"
+			+ "Distribution by Szymon Łakomy";
+
+
+	private static final String LNK_SM = "slowacki.edu.pl";
+
 	private static final String TTL_WATA = "Pixel Dungeon";
 
 	private static final String TXT_WATA =
@@ -57,7 +67,7 @@ public class AboutScene extends PixelScene {
 		super.create();
 
 		final float colWidth = Camera.main.width / (SPDSettings.landscape() ? 2 : 1);
-		final float colTop = (Camera.main.height / 2) - (SPDSettings.landscape() ? 30 : 90);
+		final float colTop = (Camera.main.height / 2) - (SPDSettings.landscape() ? 30 : 120);
 		final float wataOffset = SPDSettings.landscape() ? colWidth : 0;
 
 		Image shpx = Icons.SHPX.get();
@@ -100,14 +110,58 @@ public class AboutScene extends PixelScene {
 			}
 		};
 		add( shpxhotArea );
+		// I added this
+		Image sm = Icons.SM.get();
+		sm.x = (colWidth + wataOffset - sm.width())/2;
+		sm.y = SPDSettings.landscape() ?
+				colTop:
+				shpxlink.top() + sm.height + 20;
+		align(sm);
+		add( sm );
 
+		new Flare( 7, 64 ).color( 0x1155aa, true ).show( sm, 0 ).angularSpeed = +20;
+
+		RenderedTextBlock smtitle = renderTextBlock( TTL_SM, 8 );
+		smtitle.hardlight( Window.SM_COLOR );
+		add( smtitle );
+
+		smtitle.setPos(
+				(colWidth + wataOffset - smtitle.width())/2,
+				sm.y + sm.height + 5
+		);
+		align(smtitle);
+
+		RenderedTextBlock smtext = renderTextBlock( TXT_SM, 8 );
+		smtext.maxWidth((int)Math.min(colWidth, 120));
+		add( smtext );
+
+		smtext.setPos((colWidth + wataOffset - smtext.width())/2, smtitle.bottom() + 12);
+		align(smtext);
+
+		RenderedTextBlock smlink = renderTextBlock( LNK_SM, 8 );
+		smlink.maxWidth(smtext.maxWidth());
+		smlink.hardlight( Window.SM_COLOR );
+		add( smlink );
+
+		smlink.setPos((colWidth + wataOffset - smlink.width())/2, smtext.bottom() + 6);
+		align(smlink);
+
+		PointerArea smhotArea = new PointerArea( smlink.left(), smlink.top(), smlink.width(), smlink.height() ) {
+			@Override
+			protected void onClick( PointerEvent event ) {
+				DeviceCompat.openURI( "https://" + LNK_SM);
+			}
+		};
+		add( smhotArea );
 		Image wata = Icons.WATA.get();
 		wata.x = wataOffset + (colWidth - wata.width()) / 2;
 		wata.y = SPDSettings.landscape() ?
 						colTop:
-						shpxlink.top() + wata.height + 20;
+						smlink.top() + wata.height + 20;
 		align(wata);
 		add( wata );
+
+
 
 		new Flare( 7, 64 ).color( 0x112233, true ).show( wata, 0 ).angularSpeed = +20;
 

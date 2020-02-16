@@ -67,6 +67,7 @@ public enum Icons {
 	BADGES,
 	CHANGES,
 	SHPX,
+	SM,
 	
 	//misc icons
 	LIBGDX,
@@ -191,6 +192,9 @@ public enum Icons {
 			break;
 		case WARNING:
 			icon.frame( icon.texture.uvRect( 34, 81, 48, 95 ) );
+			break;
+		case SM:
+			icon.frame( icon.texture.uvRect( 51, 81, 67, 95 ) );
 			break;
 		}
 		return icon;
