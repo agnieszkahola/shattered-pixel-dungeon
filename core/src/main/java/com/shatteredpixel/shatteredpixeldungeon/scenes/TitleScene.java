@@ -178,7 +178,7 @@ public class TitleScene extends PixelScene {
 				ShatteredPixelDungeon.switchNoFade( AboutScene.class );
 			}
 		};
-		btnAbout.icon(Icons.get(Icons.SHPX));
+		btnAbout.icon(Icons.get(Icons.SM));
 		add(btnAbout);
 		
 		final int BTN_HEIGHT = 21;
@@ -204,7 +204,7 @@ public class TitleScene extends PixelScene {
 			btnSupport.setRect(btnPlay.left(), btnAbout.bottom()+ GAP, btnPlay.width(), BTN_HEIGHT);
 		}
 //		Game.version, pixelFont);
-		BitmapText version = new BitmapText( "vSM-0.1",pixelFont);
+		BitmapText version = new BitmapText( "vSM-0.2",pixelFont);
 		version.measure();
 		version.hardlight( 0x888888 );
 		version.x = w - version.width() - 4;
