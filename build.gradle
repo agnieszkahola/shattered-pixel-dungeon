@@ -11,7 +11,7 @@ buildscript {
 allprojects {
 
     ext {
-        appName = 'Słowak Movie Dungeon'
+        appName = 'SMD'
         appPackageName = 'com.shatteredpixel.shatteredpixeldungeon'
 
         appVersionCode = 382
