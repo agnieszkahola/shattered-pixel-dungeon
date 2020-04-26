@@ -136,6 +136,8 @@ public class SewerLevel extends RegularLevel {
 		switch (tile) {
 			case Terrain.WATER:
 				return Messages.get(SewerLevel.class, "water_name");
+			case Terrain.STATUE:
+				return Messages.get(SewerLevel.class, "statue_name");
 			default:
 				return super.tileName( tile );
 		}
@@ -148,6 +150,8 @@ public class SewerLevel extends RegularLevel {
 				return Messages.get(SewerLevel.class, "empty_deco_desc");
 			case Terrain.BOOKSHELF:
 				return Messages.get(SewerLevel.class, "bookshelf_desc");
+			case Terrain.STATUE:
+				return Messages.get(SewerLevel.class, "statue_desc");
 			default:
 				return super.tileDesc( tile );
 		}

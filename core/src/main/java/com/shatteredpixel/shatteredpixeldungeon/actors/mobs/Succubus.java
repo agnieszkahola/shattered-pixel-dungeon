@@ -50,7 +50,7 @@ public class Succubus extends Mob {
 	{
 		spriteClass = SuccubusSprite.class;
 		
-		HP = HT = 80;
+		HP = HT = 80;//80 nie umiem pokonać Dubiela XD
 		defenseSkill = 25;
 		viewDistance = Light.DISTANCE;
 		
